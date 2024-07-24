@@ -1,0 +1,3 @@
+/Users/namananand/CLionProjects/Rubik'sCubeSolver/cmake-build-debug/CMakeFiles/Rubik_sCubeSolver.dir
+/Users/namananand/CLionProjects/Rubik'sCubeSolver/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/namananand/CLionProjects/Rubik'sCubeSolver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
