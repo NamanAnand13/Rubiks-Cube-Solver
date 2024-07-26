@@ -1,14 +1,17 @@
 #include <iostream>
 #include "Models/RubikCube3DArray.cpp"
 #include "Models/RubikCube1DArray.cpp"
+#include "Solver/BFSSolver.h"
+#include "Solver/DFSSolver.h"
+#include "Solver/IDDFSSolver.h"
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
-    RubikCube3DArray object3DArray;
-    RubikCube1DArray object1dArray;
+    // std::cout << "Hello, World!" << std::endl;
+    // RubikCube3DArray object3DArray;
+    // RubikCube1DArray object1dArray;
     // object3DArray.print();
-    object1dArray.print();
+    // object1dArray.print();
     // object1dArray.rotateFace(0);
     // if (object3DArray.isSolved()) cout << "SOLVED\n\n";
     // else cout << "NOT SOLVED\n\n";
@@ -41,11 +44,11 @@ int main()
     // object1dArray.print();
     //
     //    objectBitboard.r();
-    object3DArray.r();
-    object1dArray.r();
+    // object3DArray.r();
+    // object1dArray.r();
     //    objectBitboard.print();
-    object3DArray.print();
-    object1dArray.print();
+    // object3DArray.print();
+    // object1dArray.print();
     //
     //    objectBitboard.b();
     //    object3DArray.b();
@@ -168,53 +171,56 @@ int main()
     //
 
     // DFS Solver Testing __________________________________________________________________________________________
-    //    RubiksCube3dArray cube;
-    //    cube.print();
-    //
-    //    vector<RubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(6);
-    //    for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
-    //    cout << "\n";
-    //    cube.print();
-    //
-    //    DFSSolver<RubiksCube3dArray, Hash3d> dfsSolver(cube, 8);
-    //    vector<RubiksCube::MOVE> solve_moves = dfsSolver.solve();
-    //
-    //    for (auto move: solve_moves) cout << cube.getMove(move) << " ";
-    //    cout << "\n";
-    //    dfsSolver.rubiksCube.print();
+    // RubikCube3DArray cube;
+    // cube.print();
+
+    // vector<RubikCube::MOVE> shuffle_moves = cube.randomShuffleCube(7);
+    // for (auto move : shuffle_moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
+    // cube.print();
+
+    // DFSSolver<RubikCube3DArray, Hash3D> dfsSolver(cube, 10);
+    // dfsSolver.solve();
+    // vector<RubikCube::MOVE> solve_moves = dfsSolver.solve();
+
+    // DFSSolver<>
+    // for (auto move : solve_moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
+    // dfsSolver.rubikCube.print();
+    // cube.print();
 
 
     //BFS Solver -----------------------------------------------------------------------------------------------------
-    //    RubiksCubeBitboard cube;
-    //    cube.print();
+    // RubikCube1DArray cube;
+    // cube.print();
     //
-    //    vector<RubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(6);
-    //    for(auto move: shuffle_moves) cout << cube.getMove(move) << " ";
-    //    cout << "\n";
-    //    cube.print();
-    //
-    //    BFSSolver<RubiksCubeBitboard, HashBitboard> bfsSolver(cube);
-    //    vector<RubiksCube::MOVE> solve_moves = bfsSolver.solve();
-    //
-    //    for(auto move: solve_moves) cout << cube.getMove(move) << " ";
-    //    cout << "\n";
-    //    bfsSolver.rubiksCube.print();
+    // vector<RubikCube::MOVE> shuffle_moves = cube.randomShuffleCube(20);
+    // for (auto move : shuffle_moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
+    // cube.print();
+    // //
+    // BFSSolver<RubikCube1DArray, Hash1D> bfsSolver(cube);
+    // vector<RubikCube::MOVE> solve_moves = bfsSolver.solve();
+    // //
+    // for (auto move : solve_moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
+    // bfsSolver.rubikCube.print();
 
     // IDDFS Solver ----------------------------------------------------------------------------------------------------
-    //    RubiksCubeBitboard cube;
-    //    cube.print();
-    //
-    //    vector<RubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(7);
-    //    for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
-    //    cout << "\n";
-    //    cube.print();
-    //
-    //    IDDFSSolver<RubiksCubeBitboard, HashBitboard> iddfsSolver(cube, 7);
-    //    vector<RubiksCube::MOVE> solve_moves = iddfsSolver.solve();
-    //
-    //    for (auto move: solve_moves) cout << cube.getMove(move) << " ";
-    //    cout << "\n";
-    //    iddfsSolver.rubiksCube.print();
+    RubikCube1DArray cube;
+    cube.print();
+
+    vector<RubikCube::MOVE> shuffle_moves = cube.randomShuffleCube(8);
+    for (auto move : shuffle_moves) cout << cube.getMove(move) << " ";
+    cout << "\n";
+    cube.print();
+
+    IDDFSSolver<RubikCube1DArray, Hash1D> iddfsSolver(cube, 10);
+    vector<RubikCube::MOVE> solve_moves = iddfsSolver.solve();
+
+    for (auto move : solve_moves) cout << cube.getMove(move) << " ";
+    cout << "\n";
+    iddfsSolver.rubikCube.print();
 
     // IDA* SOLVER ---------------------------------------------------------------------------------------------------
     //    RubiksCubeBitboard cube;

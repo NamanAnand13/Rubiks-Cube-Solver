@@ -300,7 +300,7 @@ public:
         return *this;
     }
 
-    RubikCube1DArray& operator=(RubikCube1DArray& state)
+    RubikCube1DArray& operator=(const RubikCube1DArray& state)
     {
         for (int i = 0; i < 54; i++)
         {
@@ -309,12 +309,25 @@ public:
         return *this;
     }
 
-    bool operator==(RubikCube1DArray& state)
+    bool operator==(const RubikCube1DArray& state) const
     {
         for (int i = 0; i < 54; i++)
         {
             if (cube[i] != state.cube[i])return false;
         }
         return true;
+    }
+};
+
+struct Hash1D
+{
+    size_t operator()(const RubikCube1DArray& state) const
+    {
+        string s;
+        for (int i = 0; i < 54; i++)
+        {
+            s += state.cube[i];
+        }
+        return hash<string>()(s);
     }
 };

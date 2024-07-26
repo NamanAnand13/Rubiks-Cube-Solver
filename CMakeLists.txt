@@ -8,4 +8,7 @@ add_executable(Rubik_sCubeSolver main.cpp
         Models/RubikCube.cpp
         Models/RubikCube3DArray.cpp
         Models/RubikCube1DArray.cpp
+        Solver/DFSSolver.h
+        Solver/BFSSolver.h
+        Solver/IDDFSSolver.h
 )
